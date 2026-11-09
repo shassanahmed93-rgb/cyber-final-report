@@ -1,0 +1,11 @@
+{
+  "id": "IR-010",
+  "finding": "Synthetic AWS CloudTrail logging interruption",
+  "evidence": [
+    "E-001 StopLogging at 10:01 UTC",
+    "E-002 StartLogging at 10:09 UTC"
+  ],
+  "fix": "Restore logging and restrict StopLogging to break-glass access.",
+  "retest": "passed",
+  "owner": "Cloud Operations"
+}
