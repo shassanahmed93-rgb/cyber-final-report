@@ -10,7 +10,7 @@
   &quot;fix&quot;: &quot;Restore logging and restrict StopLogging to break-glass access.&quot;,
   &quot;retest&quot;: &quot;passed&quot;,
   &quot;owner&quot;: &quot;Cloud Operations&quot;
-}</textarea><div class="actions"><button id="run">Run lab</button><button class="secondary" id="reset">Reset fixture</button></div></div><div class="card"><h2>Evidence output</h2><pre id="output" aria-live="polite"></pre><div class="actions"><button class="secondary" id="save">Download JSON</button><button class="secondary" id="print">Print report</button></div></div></section></main><script>
+}</textarea><div class="actions"><button id="run">Run lab</button><button class="secondary" id="reset">Reset fixture</button><button class="secondary" id="compare">Load comparison</button></div></div><div class="card"><h2>Evidence output</h2><pre id="output" aria-live="polite"></pre><div class="actions"><button class="secondary" id="save">Download JSON</button><button class="secondary" id="print">Print report</button></div></div></section><section class="card" style="margin-top:18px"><p class="tag">What this demonstrates</p><h2>Tie closure to evidence, remediation, and retest</h2><p>Compare a passed retest with a failed retest. The report keeps failed items open for follow-up. Its impact statement describes a synthetic visibility gap.</p><a href="https://csrc.nist.gov/pubs/sp/800/61/r3/final">Reference guidance</a></section></main><script>
 "use strict";
 function analyze(input) {
   if (!input.evidence.length || !input.fix || !input.owner) throw new Error("Evidence, remediation and an owner are required.");
@@ -32,6 +32,7 @@ function run() {
   document.getElementById("save").disabled = report === undefined;
 }
 document.getElementById("run").onclick = run;
+document.getElementById("compare").onclick = () => { input.value = "{\n  \"id\": \"IR-011\",\n  \"finding\": \"Logging interrupted\",\n  \"evidence\": [\n    \"E-003\"\n  ],\n  \"fix\": \"Restore logging\",\n  \"retest\": \"failed\",\n  \"owner\": \"Cloud Operations\"\n}"; run(); };
 document.getElementById("reset").onclick = () => { input.value = fixture; run(); };
 document.getElementById("save").onclick = () => {
   if (report === undefined) return;

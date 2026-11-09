@@ -32,3 +32,9 @@ Open `index.html` in a modern browser or run `node test.mjs` with Node.js 20+. T
 ## Scope
 
 Synthetic lab inputs and deterministic rules. Review results before applying them to a real incident.
+
+## What this demonstrates
+
+**Tie closure to evidence, remediation, and retest.** Compare a passed retest with a failed retest. The report keeps failed items open for follow-up. Its impact statement describes a synthetic visibility gap.
+
+[Reference guidance](https://csrc.nist.gov/pubs/sp/800/61/r3/final)
